@@ -51,7 +51,7 @@ class makeHash(createDict):
 #inStr = 'Maugli 55 Contakt 49 Qwerty 111 Qwerty 222 Aibolit 66 XXX 65'
 #inDict = {'Maugli': '55', 'Contakt': '49', 'Qwerty': '222', 'Aibolit': '66', 'XXX': '65')
 #hashAlg = 'md5'
-#inDict = {}
+
 inStr = str(input())
 hashAlg = str(input())
 
