@@ -31,7 +31,6 @@ class createDict(object):
         self.hashAlg = hashAlg
         inList = inStr.split()
         self.inDict = dict(zip(inList[::2], inList[1::2]))
-        print(self.inDict)
         for item in sorted(self.inDict.keys()):
             print(item, self.inDict[item])
 
@@ -43,7 +42,6 @@ class makeHash(createDict):
             inHash = hashlib.new(self.hashAlg)
             inHash.update(key.encode())
             rezHash = inHash.hexdigest()
-            print(key, rezHash)
             tmpList.append(rezHash)
         for item in sorted(tmpList):
             rezStr += '{} {} '.format(self.hashAlg, item)
