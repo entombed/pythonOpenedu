@@ -31,6 +31,7 @@ class createDict(object):
         self.hashAlg = hashAlg
         inList = inStr.split()
         self.inDict = dict(zip(inList[::2], inList[1::2]))
+        print(self.inDict)
         for item in sorted(self.inDict.keys()):
             print(item, self.inDict[item])
 
@@ -38,23 +39,21 @@ class makeHash(createDict):
     def doHash(self):
         rezStr = ''
         tmpList = []
-        inHash = hashlib.new(self.hashAlg)
-        for val in self.inDict:
-            inHash.update(val.encode())
+        for key in self.inDict:
+            inHash = hashlib.new(self.hashAlg)
+            inHash.update(key.encode())
             rezHash = inHash.hexdigest()
+            print(key, rezHash)
             tmpList.append(rezHash)
         for item in sorted(tmpList):
             rezStr += '{} {} '.format(self.hashAlg, item)
         return rezStr.strip()
 
-
 #inStr = 'Maugli 55 Contakt 49 Qwerty 111 Qwerty 222 Aibolit 66 XXX 65'
-#inDict = {'Maugli': '55', 'Contakt': '49', 'Qwerty': '222', 'Aibolit': '66', 'XXX': '65')
 #hashAlg = 'md5'
 
 inStr = str(input())
 hashAlg = str(input())
-
 
 
 x = makeHash(inStr, hashAlg)
